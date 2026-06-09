@@ -76,7 +76,6 @@ casks=(
   font-symbols-only-nerd-font
   font-victor-mono-nerd-font
   gcloud-cli
-  ghostty
   google-chrome
   hammerspoon
   karabiner-elements

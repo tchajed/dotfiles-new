@@ -4,6 +4,8 @@ Tej's dotfiles for work at [Theorem](https://theorem.dev) managed by [dotbot](ht
 
 ## Setup
 
+Bootstrapping: on a new laptop, use Safari and Terminal.app to install [Homebrew](https://brew.sh), then run this installer to replace the browser and terminal.
+
 ```sh
 git submodule update --init --recursive
 ./install
