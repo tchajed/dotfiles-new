@@ -1,8 +1,6 @@
 # dotfiles-theorem
 
-Personal dotfiles managed by [dotbot](https://github.com/anishathalye/dotbot).
-
-This repo tracks only configuration that was live-installed on this machine when it was created, plus a Homebrew install script generated from currently installed packages.
+Tej's dotfiles for work at [Theorem](https://theorem.dev) managed by [dotbot](https://github.com/anishathalye/dotbot).
 
 ## Setup
 
