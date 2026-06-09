@@ -11,6 +11,8 @@ git submodule update --init --recursive
 ./install
 ```
 
+`./install` also applies macOS defaults from `macos/defaults.sh`.
+
 Install Homebrew packages with:
 
 ```sh

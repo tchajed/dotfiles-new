@@ -34,3 +34,6 @@
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
+
+- shell:
+    - macos/defaults.sh
