@@ -28,6 +28,9 @@ fish_add_path --prepend $BUN_INSTALL/bin
 fish_add_path --prepend ~/.local/bin
 fish_add_path --prepend ~/go/bin
 
+# Homebrew rustup is keg-only, so cargo/rustc shims live here.
+fish_add_path --prepend /opt/homebrew/opt/rustup/bin
+
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
