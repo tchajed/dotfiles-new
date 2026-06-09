@@ -1,0 +1,36 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ["~", "~/.config"]
+
+- link:
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
+    ~/.doom.d: emacs/doom
+    ~/.config/nvim:
+      create: true
+      path: vim/lazyvim-nvim
+    ~/.config/fish/config.fish:
+      create: true
+      force: true
+      path: fish/config.fish
+    ~/.config/fish/conf.d:
+      force: true
+      path: fish/conf.d
+    ~/.hammerspoon: hammerspoon
+    ~/.config/karabiner/karabiner.json:
+      create: true
+      force: true
+      path: karabiner/karabiner.json
+    ~/.config/starship.toml: starship.toml
+    ~/.hushlogin:
+      force: true
+      path: hushlogin
+    ~/.config/ghostty:
+      create: true
+      path: ghostty
+    ~/.config/cmux/cmux.json:
+      create: true
+      path: cmux/cmux.json

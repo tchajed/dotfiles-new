@@ -1,0 +1,7 @@
+[user]
+	name = Tej Chajed
+	email = tej@theorem.dev
+[core]
+	editor = nvim
+[push]
+	autoSetupRemote = true

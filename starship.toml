@@ -1,0 +1,84 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+command_timeout = 550 # ms
+
+[directory]
+# number of parent folders to show
+truncation_length = 5
+truncate_to_repo = true
+
+[cmd_duration]
+min_time = 200 # ms
+style = "red"
+
+[git_status]
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇡$ahead_count ⇣$behind_count"
+modified = ""
+style = "bold red"
+
+[custom.jj]
+command = "prompt"
+format = "$output"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true
+
+[time]
+disabled = false
+time_format = "%_H:%M"
+format = "[$time]($style) "
+style = "cyan"
+
+[username]
+disabled = true
+
+[hostname]
+format="[@$hostname]($style) "
+style = "bold green"
+ssh_only = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+## language-specific configuration
+
+[nodejs]
+disabled = true
+
+[golang]
+symbol = "Go "
+
+[package]
+# used for npm, cargo, and poetry (Python)
+symbol = "pkg "
+# disabled, not really that helpful
+disabled = true
+
+[rust]
+symbol = ""
+
+[python]
+disabled = true
+
+[perl]
+disabled = true
+
+# detects Coq .v files incorrectly
+[vlang]
+disabled = true
+
+[ocaml]
+detect_extensions = ["ml", "mli"]
+detect_files = [".merlin", ".ocamlformat", ".ocamlinit"]
+
+[c]
+commands = [["clang", "--version"], ["gcc", "--version"]]
+disabled = true

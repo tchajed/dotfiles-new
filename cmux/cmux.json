@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  "app": {
+    "appearance": "system",
+    "workspaceInheritWorkingDirectory": false
+  },
+
+  "sidebarAppearance": {
+    "matchTerminalBackground": true
+  },
+
+  "shortcuts": {
+    "bindings": {
+      "newWindow": "cmd+opt+shift+ctrl+t",
+      "showHideAllWindows": "cmd+'"
+    }
+  }
+}
