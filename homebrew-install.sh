@@ -83,7 +83,6 @@ casks=(
   logitech-g-hub
   notion
   orbstack
-  signal
   slack
   timing
   visual-studio-code
