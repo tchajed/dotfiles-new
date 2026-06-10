@@ -19,6 +19,10 @@
     ~/.config/fish/conf.d:
       force: true
       path: fish/conf.d
+    ~/.config/fish/functions:
+      create: true
+      force: true
+      path: fish/functions
     ~/.hammerspoon: hammerspoon
     ~/.config/karabiner/karabiner.json:
       create: true
