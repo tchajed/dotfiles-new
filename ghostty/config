@@ -26,6 +26,6 @@ tab-inherit-working-directory = true
 window-inherit-working-directory = false
 
 # Global shortcuts
-## TODO: something about this shortcut doesn't work within ghostty - it's the specific keys involved, not the syntax
-keybind = global:cmd+opt+shift+ctrl+t=new_window
+# Hyper+t is handled by Hammerspoon and opens a new cmux window.
+# keybind = global:cmd+opt+shift+ctrl+t=new_window
 keybind = global:cmd+quote=toggle_quick_terminal

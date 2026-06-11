@@ -1,10 +1,22 @@
 local newTerminal = function()
-	local home = os.getenv("HOME")
-	hs.execute([[ "/opt/homebrew/bin/kitty" "--single-instance" "--working-directory" ]] .. home)
-  local app = hs.application.find("kitty")
-  if app then
-    app:activate()
+  -- Run cmux via AppleScript's `do shell script` instead of directly from
+  -- Hammerspoon. Direct hs.task/hs.execute calls can hit cmux socket broken-pipe
+  -- errors from Hammerspoon's GUI process environment.
+  local ok, result = hs.osascript.applescript([[
+    do shell script "env -i HOME=/Users/tej PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin /opt/homebrew/bin/cmux new-window 2>&1"
+  ]])
+
+  if not ok then
+    hs.execute([[/usr/bin/open -a cmux]])
+    hs.printf("cmux new-window failed: %s", result or "")
   end
+
+  hs.timer.doAfter(0.2, function()
+    local app = hs.application.find("cmux")
+    if app then
+      app:activate()
+    end
+  end)
 end
 
 -- hyper+t
