@@ -73,6 +73,9 @@ casks=(
   dropbox
   font-inconsolata-nerd-font
   font-noto-sans-symbols-2
+  font-open-sans
+  font-roboto
+  font-roboto-mono-nerd-font
   font-symbols-only-nerd-font
   font-victor-mono-nerd-font
   gcloud-cli
