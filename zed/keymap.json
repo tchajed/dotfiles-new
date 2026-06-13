@@ -1,0 +1,11 @@
+[
+  {
+    "context": "Editor && vim_mode == normal && extension == md",
+    "bindings": {
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+      "0": ["vim::StartOfLine", { "display_lines": true }],
+      "$": ["vim::EndOfLine", { "display_lines": true }]
+    }
+  }
+]

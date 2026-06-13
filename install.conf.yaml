@@ -38,6 +38,9 @@
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
+    ~/.config/zed/keymap.json:
+      create: true
+      path: zed/keymap.json
 
 - shell:
     - macos/defaults.sh
