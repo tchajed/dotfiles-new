@@ -11,6 +11,24 @@
     "matchTerminalBackground": true
   },
 
+  "sidebar": {
+    "openPullRequestLinksInCmuxBrowser": false,
+    "openPortLinksInCmuxBrowser": true
+  },
+
+  "browser": {
+    "openTerminalLinksInCmuxBrowser": true,
+    "interceptTerminalOpenCommandInCmuxBrowser": true,
+    "hostsToOpenInEmbeddedBrowser": [
+      "localhost",
+      "*.localhost",
+      "127.0.0.1",
+      "::1",
+      "0.0.0.0",
+      "*.localtest.me"
+    ]
+  },
+
   "shortcuts": {
     "bindings": {
       "newWindow": "cmd+opt+shift+ctrl+t",
