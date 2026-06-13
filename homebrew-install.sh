@@ -51,6 +51,7 @@ formulae=(
   make
   neovim
   opam
+  pandoc
   pkgconf
   poppler
   python@3.13
