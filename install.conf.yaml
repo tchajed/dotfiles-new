@@ -38,6 +38,12 @@
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
+    ~/.agents/skills/cmux:
+      create: true
+      path: skills/cmux
+    ~/.agents/skills/cmux-settings:
+      create: true
+      path: skills/cmux-settings
     ~/.config/zed/keymap.json:
       create: true
       path: zed/keymap.json
