@@ -67,6 +67,7 @@ formulae=(
 casks=(
   1password
   1password-cli
+  alfred
   claude
   claude-code
   cmux
