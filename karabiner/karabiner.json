@@ -5,62 +5,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Wireless Presenter for Wispr Flow: page up/down scroll, tab to mouse button 6",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "is_keyboard": true,
-                                                "product_id": 17780,
-                                                "vendor_id": 1155
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": { "key_code": "page_up" },
-                                "to": [{ "mouse_key": { "vertical_wheel": 32 } }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "is_keyboard": true,
-                                                "product_id": 17780,
-                                                "vendor_id": 1155
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": { "key_code": "page_down" },
-                                "to": [{ "mouse_key": { "vertical_wheel": -32 } }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "is_keyboard": true,
-                                                "product_id": 17780,
-                                                "vendor_id": 1155
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": { "key_code": "tab" },
-                                "to": [{ "pointing_button": "button6" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change RCMD+asdf to |_=\\",
                         "manipulators": [
                             {
@@ -574,6 +518,30 @@
                             "to": [{ "key_code": "caps_lock" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 17780,
+                        "vendor_id": 1155
+                    },
+                    "manipulate_caps_lock_led": false,
+                    "_comment": "Wireless Presenter for Wispr Flow",
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "page_up" },
+                            "to": [{ "mouse_key": { "vertical_wheel": -32 } }]
+                        },
+                        {
+                            "from": { "key_code": "page_down" },
+                            "to": [{ "mouse_key": { "vertical_wheel": 32 } }]
+                        },
+                        {
+                            "from": { "key_code": "tab" },
+                            "to": [{ "pointing_button": "button6" }]
+                        }
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "identifiers": { "is_keyboard": true },
