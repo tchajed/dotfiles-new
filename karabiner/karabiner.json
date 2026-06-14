@@ -5,6 +5,62 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Wireless Presenter for Wispr Flow: page up/down scroll, tab to mouse button 6",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "is_keyboard": true,
+                                                "product_id": 17780,
+                                                "vendor_id": 1155
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "page_up" },
+                                "to": [{ "mouse_key": { "vertical_wheel": 32 } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "is_keyboard": true,
+                                                "product_id": 17780,
+                                                "vendor_id": 1155
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "page_down" },
+                                "to": [{ "mouse_key": { "vertical_wheel": -32 } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "is_keyboard": true,
+                                                "product_id": 17780,
+                                                "vendor_id": 1155
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "tab" },
+                                "to": [{ "pointing_button": "button6" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change RCMD+asdf to |_=\\",
                         "manipulators": [
                             {
