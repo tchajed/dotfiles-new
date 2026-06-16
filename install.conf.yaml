@@ -47,6 +47,10 @@
     ~/.config/zed/keymap.json:
       create: true
       path: zed/keymap.json
+    ~/.config/zed/settings.json:
+      create: true
+      force: true
+      path: zed/settings.json
 
 - shell:
     - macos/defaults.sh
