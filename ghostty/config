@@ -1,4 +1,6 @@
 # Ported from ~/.config/kitty/kitty.conf
+# This file is not for the standalone Ghostty app on this machine.
+# cmux reads ~/.config/ghostty/config for its embedded terminal behavior.
 
 # Font
 font-family = "Victor Mono"
