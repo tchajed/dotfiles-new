@@ -21,8 +21,8 @@ font-codepoint-map = U+2010="Fira Code"
 theme = light:Catppuccin-Kitty-Latte,dark:Catppuccin-Kitty-Macchiato
 
 # Directory behavior
-# New tabs inherit the current working directory; new windows start in $HOME.
-tab-inherit-working-directory = true
+# New tabs and windows start in $HOME.
+tab-inherit-working-directory = false
 window-inherit-working-directory = false
 
 # Global shortcuts
