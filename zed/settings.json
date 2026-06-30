@@ -17,7 +17,7 @@
     "hide_gitignore": true
   },
   "buffer_font_weight": 500.0,
-  "buffer_font_family": "Inconsolata Nerd Font Mono",
+  "buffer_font_family": "VictorMono Nerd Font Mono",
   "terminal": {
     "font_size": 14.0,
     "font_family": "VictorMono Nerd Font Mono"
