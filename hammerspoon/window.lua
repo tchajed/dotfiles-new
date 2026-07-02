@@ -15,22 +15,19 @@ hs.grid.setGrid("4x3", "Built%-in Retina Display")
 
 hs.grid.setMargins({ w = 0, h = 0 })
 hs.hotkey.bind({ "shift", "cmd" }, "g", function()
-    hs.grid.show()
+	hs.grid.show()
 end)
 
 -- when screens change, grid gets messed up; reconfiguring it recalculates it
 local function reconfigureGrid()
-    hs.grid.setGrid(hs.grid.getGrid())
+	hs.grid.setGrid(hs.grid.getGrid())
 end
 
 local screenWatcher = hs.screen.watcher.new(function()
-    -- give the displays a moment to settle before recalculating the grid
-    hs.timer.doAfter(2, reconfigureGrid)
+	-- give the displays a moment to settle before recalculating the grid
+	hs.timer.doAfter(2, reconfigureGrid)
 end)
 screenWatcher:start()
-
--- layout fix: put my main windows back where they belong
-local hyper = { "cmd", "alt", "ctrl", "shift" }
 
 local function fixLayout()
 	-- cmux: right 4/10ths of the screen, full height
@@ -52,4 +49,7 @@ local function fixLayout()
 	end
 end
 
-hs.hotkey.bind(hyper, "l", fixLayout)
+-- hyper-g (bound to fn2+g on moonlander)
+-- layout fix: put my main windows back where they belong
+local hyper = { "cmd", "alt", "ctrl", "shift" }
+hs.hotkey.bind(hyper, "g", fixLayout)
