@@ -30,6 +30,12 @@
 (setq company-coq-disabled-features '(hello prettify-symbols alerts spinner company-defaults))
 (setq dtrt-indent-max-lines 800)
 
+;; Use a POSIX shell internally so Emacs subprocesses don't trip over fish syntax.
+(setq shell-file-name (executable-find "bash"))
+;; Keep interactive terminal buffers using fish.
+(setq-default vterm-shell "/opt/homebrew/bin/fish")
+(setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
+
 ;; TODO: this doesn't seem to have worked (for getting sorted results)
 (vertico-multiform-mode)
 (setq vertico-multiform-commands
