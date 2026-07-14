@@ -8,6 +8,8 @@ compatibility: Requires bun.
 
 Build a focused website that helps someone understand, compare, inspect, or decide something. Treat it as a review tool rather than a public-facing product.
 
+If the website is a description of a GitHub repo, link to it (or another appropriate page if it's a description of something else).
+
 ## Default stack
 
 Unless the user explicitly chooses otherwise, use:
