@@ -56,9 +56,9 @@ Match the interface to the review task. Good patterns include:
 - guided sections for an explainer
 - histograms and plots for data
 
-Lead with the conclusion or primary review question. Make supporting evidence easy to scan and details available on demand. Prefer a small number of meaningful views over a dashboard full of arbitrary metrics.
+Lead with the conclusion or primary review question. Make supporting evidence easy to scan and details available on demand. Prefer a small number of meaningful views over a dashboard full of arbitrary metrics. Use a reasonably large font size to maximize readability.
 
-Before coding, form a compact design plan: visual concept, palette, typography, page structure, and one signature rough.js element tied to the subject. Avoid interchangeable SaaS-dashboard styling.
+Before coding, form a compact design plan: visual concept, palette, typography, page structure, and one signature rough.js element tied to the subject. Make the visuals distinct, but spend that distinctiveness on that one signature element: keep page backgrounds plain and quiet — no decorative textures, grids, or patterns unless the user asks for them.
 
 ### 3. Scaffold safely
 
