@@ -44,6 +44,12 @@
     ~/.agents/skills/cmux-settings:
       create: true
       path: skills/cmux-settings
+    ~/.agents/skills/review-website:
+      create: true
+      path: skills/review-website
+    ~/.claude/skills/review-website:
+      create: true
+      path: skills/review-website
     ~/.config/zed/keymap.json:
       create: true
       path: zed/keymap.json
