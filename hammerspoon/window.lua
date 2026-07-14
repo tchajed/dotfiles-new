@@ -33,8 +33,7 @@ local function fixLayout()
 	-- cmux: right 4/10ths of the screen, full height
 	local cmux = hs.application.get("cmux")
 	if cmux then
-		local win = cmux:mainWindow()
-		if win then
+		for _, win in ipairs(cmux:allWindows()) do
 			win:moveToUnit({ x = 0.6, y = 0, w = 0.4, h = 1 })
 		end
 	end
