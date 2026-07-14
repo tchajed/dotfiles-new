@@ -1,12 +1,12 @@
 ---
 name: review-website
-description: Create polished, self-contained review websites and interactive visual artifacts using Bun, Vite, Vue, TypeScript, and rough.js. Use this skill whenever the user asks for a “review website,” a small website to explore or explain something, a visual comparison/review tool, an interactive brief, or says “create a website to do X” with this stack—even if they do not explicitly name every technology.
-compatibility: Requires Bun and a browser-capable environment for previewing the result.
+description: Create polished, self-contained review websites and interactive visual artifacts using bun. Use this skill whenever the user asks for a “review website,” a small website to explore or explain something, a visual comparison/review tool, an interactive brief, or a code walkthrough.
+compatibility: Requires bun.
 ---
 
 # Review Website
 
-Build a focused website that helps someone understand, compare, inspect, or decide something. Treat it as a real review tool rather than a generic landing page or a static memo with decorative cards.
+Build a focused website that helps someone understand, compare, inspect, or decide something. Treat it as a review tool rather than a public-facing product.
 
 ## Default stack
 
@@ -15,11 +15,20 @@ Unless the user explicitly chooses otherwise, use:
 - Bun for package management and scripts
 - Vite
 - Vue 3 with the Composition API and `<script setup lang="ts">`
-- TypeScript with strict typing
-- rough.js for the site’s hand-drawn visual language
+- TypeScript 7 with strict typing
+- rough.js for diagrams and visuals
+- Light mode styling
 - Plain CSS scoped or organized within the app; avoid adding a UI framework by default
 
 Do not swap in React, npm, Tailwind, or a different drawing library merely from habit. Add other dependencies only when they clearly earn their cost.
+
+If any data is being presented, prefer to dynamically include it from a file (such as json) so that the data can be updated without deep website modifications.
+
+If the site has any code, use shiki to syntax highlight it.
+
+If the site has any math, use katex.
+
+If you need to include a markdown file (such as a separate report that the user has already generated or requested), then render it from disk on the server.
 
 ## Workflow
 
@@ -45,6 +54,7 @@ Match the interface to the review task. Good patterns include:
 - timeline for a sequence
 - scorecard with evidence for a decision
 - guided sections for an explainer
+- histograms and plots for data
 
 Lead with the conclusion or primary review question. Make supporting evidence easy to scan and details available on demand. Prefer a small number of meaningful views over a dashboard full of arbitrary metrics.
 
@@ -63,7 +73,7 @@ bun install
 bun add roughjs
 ```
 
-If the current repository is already a suitable Vue/Vite app, modify it rather than nesting another project. Keep generated boilerplate only when it serves the result; remove demo assets and styles.
+Install playwright for automated visual inspection. Then upgrade the dependencies right away.
 
 ### 4. Build the complete experience
 
@@ -77,56 +87,7 @@ Use real content from the request and source material. Implement the important i
 
 Use rough.js as structural visual language, not random decoration. Suitable uses include outlines, connectors, underlines, callouts, diagrams, selected states, or emphasis marks. Keep rendering stable by using fixed seeds. For responsive SVG drawings, redraw from measured dimensions with a `ResizeObserver`; clean up observers and generated nodes on unmount. Preserve text as HTML or accessible SVG text rather than rendering essential labels only to canvas.
 
-A typical rough.js Vue pattern is:
-
-```ts
-import { onBeforeUnmount, onMounted, ref } from 'vue'
-import rough from 'roughjs'
-
-const host = ref<SVGSVGElement | null>(null)
-let observer: ResizeObserver | undefined
-
-function draw() {
-  const svg = host.value
-  if (!svg) return
-  svg.replaceChildren()
-  const rc = rough.svg(svg)
-  svg.append(rc.rectangle(4, 4, Math.max(0, svg.clientWidth - 8), 64, {
-    seed: 17,
-    roughness: 1.2,
-    strokeWidth: 2,
-  }))
-}
-
-onMounted(() => {
-  observer = new ResizeObserver(draw)
-  if (host.value) observer.observe(host.value)
-  draw()
-})
-
-onBeforeUnmount(() => observer?.disconnect())
-```
-
-Adapt this pattern rather than copying it blindly; zero-sized first renders and repeated redraws must not leave stale nodes behind.
-
-### 5. Meet the quality floor
-
-The result should:
-
-- work at narrow mobile and wide desktop sizes
-- have clear hierarchy, concise labels, and readable line lengths
-- provide visible hover and keyboard-focus states
-- use actual buttons and links for actions
-- respect `prefers-reduced-motion`
-- maintain usable contrast
-- handle empty, missing, and long-content states where relevant
-- avoid horizontal page overflow
-- avoid fake search, filters, toggles, export buttons, or links
-- avoid placeholder copy, lorem ipsum, and unsupported claims
-
-Use animation only when it clarifies change or orientation. The hand-drawn treatment should remain legible and disciplined rather than making every edge noisy.
-
-### 6. Verify before handing off
+### 5. Verify before handing off
 
 At minimum run:
 
@@ -134,13 +95,12 @@ At minimum run:
 bun run build
 ```
 
-Also run existing lint or test scripts when present. Fix warnings and TypeScript failures rather than merely reporting them. If browser or screenshot tools are available, inspect the page at desktop and mobile widths and correct clipping, overlap, broken interaction, and rough.js sizing issues.
+Also run existing lint or test scripts when present. Fix warnings and TypeScript failures rather than merely reporting them. Install playwright and use it to inspect the page at desktop width for styling issues.
 
 Finish by telling the user:
 
 - where the app was created
 - what review workflow it supports
-- which checks passed
 - how to run it locally (`bun run dev`)
 
 Do not claim to have visually inspected the page unless you actually did.
