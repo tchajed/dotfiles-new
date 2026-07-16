@@ -8,10 +8,20 @@ if status is-interactive
     # Set up fzf key bindings
     if command -q fzf
         fzf --fish | source
-        # fd will respect gitignore
-        # this doesn't affect fzf used directly (e.g., `vim (fzf)`)
-        set -gx FZF_CTRL_T_COMMAND 'fd --type f --strip-cwd-prefix'
+        # fd respects ignore files. Use the directory parsed by fzf's Fish
+        # widget so `fish/con<ctrl-t>` searches only inside `fish/`.
+        # This doesn't affect fzf used directly (e.g., `vim (fzf)`).
+        set -gx FZF_CTRL_T_COMMAND 'if test "$dir" = .; fd --type f --strip-cwd-prefix; else; fd --type f . "$dir"; end'
         set -gx FZF_DEFAULT_OPTS '--select-1 --exit-0'
+
+        # Alt-T is the inclusive variant: show hidden and ignored files, while
+        # still avoiding Git's internal object database.
+        function fzf-file-widget-all --description 'List files, including hidden and ignored files'
+            set -lx FZF_CTRL_T_COMMAND 'if test "$dir" = .; fd --type f --hidden --no-ignore --exclude .git --strip-cwd-prefix; else; fd --type f --hidden --no-ignore --exclude .git . "$dir"; end'
+            fzf-file-widget
+        end
+        bind \et fzf-file-widget-all
+        bind -M insert \et fzf-file-widget-all
     end
 
     function fish_greeting
