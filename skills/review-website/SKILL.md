@@ -6,7 +6,7 @@ compatibility: Requires bun.
 
 # Review Website
 
-Build a focused website that helps someone understand, compare, inspect, or decide something. Treat it as a review tool rather than a public-facing product.
+Build a focused website that helps someone understand, compare, inspect, or decide something. Treat it as a review tool rather than a public-facing product; the website will be used to learn something, not shared widely.
 
 If the website is a description of a GitHub repo, link to it (or another appropriate page if it's a description of something else).
 
@@ -77,15 +77,9 @@ bun add roughjs
 
 Install playwright for automated visual inspection. Then upgrade the dependencies right away.
 
-### 4. Build the complete experience
+### 4. Build a useful website
 
-Use real content from the request and source material. Implement the important interactions rather than drawing inert controls. Keep state and components proportional to the app:
-
-- define typed domain models
-- separate substantial views or repeated concepts into components
-- derive filtered and summarized state with `computed`
-- keep source data in a clear module when it is more than a few inline items
-- use semantic HTML before adding ARIA
+Use real content from the request and source material. Implement the important interactions rather than drawing inert controls.
 
 Use rough.js as structural visual language, not random decoration. Suitable uses include outlines, connectors, underlines, callouts, diagrams, selected states, or emphasis marks. Keep rendering stable by using fixed seeds. For responsive SVG drawings, redraw from measured dimensions with a `ResizeObserver`; clean up observers and generated nodes on unmount. Preserve text as HTML or accessible SVG text rather than rendering essential labels only to canvas.
 
@@ -97,7 +91,7 @@ At minimum run:
 bun run build
 ```
 
-Also run existing lint or test scripts when present. Fix warnings and TypeScript failures rather than merely reporting them. Install playwright and use it to inspect the page at desktop width for styling issues.
+Install playwright and use it to inspect the page at desktop width for styling issues.
 
 Finish by telling the user:
 
