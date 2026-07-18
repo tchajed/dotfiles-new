@@ -72,7 +72,8 @@ For a new app, use the equivalent of:
 bun create vite <target> --template vue-ts
 cd <target>
 bun install
-bun add roughjs
+bun add roughjs shiki
+bun update
 ```
 
 Install playwright for automated visual inspection. Then upgrade the dependencies right away.
