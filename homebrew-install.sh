@@ -56,12 +56,15 @@ formulae=(
   poppler
   python@3.13
   rustup
+  shellcheck
   starship
   texinfo
   tmux
   tokei
   tree
+  tree-sitter-cli
   wget
+  zapp
 )
 
 casks=(
@@ -84,14 +87,19 @@ casks=(
   google-chrome
   hammerspoon
   karabiner-elements
+  keybase
+  keymapp
   linear
   logitech-g-hub
   notion
   orbstack
   slack
+  spotify
+  tldraw
   timing
   visual-studio-code
   wispr-flow
+  zed
   zoom
 )
 
