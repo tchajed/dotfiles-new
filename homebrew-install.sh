@@ -49,7 +49,6 @@ formulae=(
   go
   grep
   make
-  mas
   neovim
   opam
   pandoc
@@ -104,12 +103,6 @@ casks=(
   zoom
 )
 
-# Mac App Store IDs (name in comments for readability).
-app_store_apps=(
-  937984704 # Amphetamine
-)
-
 install_taps "${taps[@]}"
 brew install "${formulae[@]}"
 brew install --cask "${casks[@]}"
-mas install "${app_store_apps[@]}"
