@@ -5,3 +5,11 @@
 	editor = nvim
 [push]
 	autoSetupRemote = true
+# Use GitHub CLI authentication for GitHub HTTPS operations.
+# The empty helper entries clear any inherited credential helpers first.
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
