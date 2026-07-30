@@ -47,9 +47,15 @@
     ~/.agents/skills/review-website:
       create: true
       path: skills/review-website
+    ~/.agents/skills/rocq-performance-review:
+      create: true
+      path: skills/rocq-performance-review
     ~/.claude/skills/review-website:
       create: true
       path: skills/review-website
+    ~/.claude/skills/rocq-performance-review:
+      create: true
+      path: skills/rocq-performance-review
     ~/.config/zed/keymap.json:
       create: true
       path: zed/keymap.json
