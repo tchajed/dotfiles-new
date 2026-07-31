@@ -60,8 +60,6 @@ Match the interface to the review task. Good patterns include:
 
 Lead with the conclusion or primary review question. Make supporting evidence easy to scan and details available on demand. Prefer a small number of meaningful views over a dashboard full of arbitrary metrics. Use a reasonably large font size to maximize readability.
 
-Tables with a lot of data should implement sticky column headers, sorting, and filtering.
-
 Before coding, form a compact design plan: visual concept, palette, typography, page structure, and one signature rough.js element tied to the subject. Make the visuals distinct, but spend that distinctiveness on that one signature element: keep page backgrounds plain and quiet — no decorative textures, grids, or patterns unless the user asks for them.
 
 ### 3. Scaffold safely
@@ -83,6 +81,10 @@ Install playwright for automated visual inspection. Then upgrade the dependencie
 ### 4. Build a useful website
 
 Use real content from the request and source material. Implement the important interactions rather than drawing inert controls.
+
+Tables with a lot of data should implement sticky column headers, sorting, and filtering.
+
+Save important UI state (like tabs and dropdown settings) in the website's hash so it can be restored.
 
 Use rough.js as structural visual language, not random decoration. Suitable uses include outlines, connectors, underlines, callouts, diagrams, selected states, or emphasis marks. Keep rendering stable by using fixed seeds. For responsive SVG drawings, redraw from measured dimensions with a `ResizeObserver`; clean up observers and generated nodes on unmount. Preserve text as HTML or accessible SVG text rather than rendering essential labels only to canvas.
 
