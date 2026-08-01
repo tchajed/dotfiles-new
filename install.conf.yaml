@@ -38,6 +38,9 @@
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
+    ~/.pi/agent/agents/explorer.md:
+      create: true
+      path: pi/agents/explorer.md
     ~/.agents/skills/cmux:
       create: true
       path: skills/cmux
