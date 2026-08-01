@@ -37,7 +37,6 @@ formulae=(
   d12frosted/emacs-plus/emacs-plus@30
   devcontainer
   direnv
-  git-delta
   dust
   elan-init
   emscripten
@@ -47,6 +46,7 @@ formulae=(
   fx
   fzf
   gh
+  git-delta
   gnu-sed
   gnu-tar
   go
