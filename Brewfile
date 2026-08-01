@@ -5,7 +5,6 @@
 tap "d12frosted/emacs-plus"
 
 brew "autoconf"
-brew "autojump"
 brew "awk"
 brew "bat"
 brew "btop"
@@ -47,6 +46,7 @@ brew "tree"
 brew "tree-sitter-cli"
 brew "wget"
 brew "zapp"
+brew "zoxide"
 
 cask "1password"
 cask "1password-cli"
