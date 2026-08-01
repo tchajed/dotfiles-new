@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+need() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "validation requires $1" >&2
+    exit 1
+  fi
+}
+
+for command in fish git jq nvim shellcheck; do
+  need "$command"
+done
+
+python_bin="$(command -v python3.13 || command -v python3 || true)"
+if [[ -z "$python_bin" ]] || ! "$python_bin" -c 'import tomllib' 2>/dev/null; then
+  echo "validation requires Python 3.11 or newer" >&2
+  exit 1
+fi
+
+echo "==> Checking shell scripts"
+while IFS= read -r -d '' file; do
+  bash -n "$file"
+  shellcheck "$file"
+done < <(git ls-files -z 'install' '*.sh')
+
+echo "==> Checking Fish configuration"
+while IFS= read -r -d '' file; do
+  fish --no-execute "$file"
+done < <(git ls-files -z 'fish/*.fish' 'fish/**/*.fish')
+
+echo "==> Checking JSON"
+while IFS= read -r -d '' file; do
+  jq empty "$file"
+done < <(git ls-files -z '*.json' ':!zed/*.json')
+
+# Zed uses JSON with full-line comments (JSONC), which jq does not accept.
+"$python_bin" - <<'PY'
+import json
+from pathlib import Path
+
+for path in (Path("zed/settings.json"), Path("zed/keymap.json")):
+    text = "\n".join(
+        line for line in path.read_text().splitlines()
+        if not line.lstrip().startswith("//")
+    )
+    json.loads(text)
+PY
+
+echo "==> Checking YAML and Dotbot link sources"
+"$python_bin" - <<'PY'
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path("dotbot/lib/pyyaml/lib").resolve()))
+import yaml
+
+for path in (Path("install.conf.yaml"), Path(".github/workflows/validate.yml")):
+    with path.open() as stream:
+        yaml.safe_load(stream)
+
+manifest = yaml.safe_load(Path("install.conf.yaml").read_text())
+for section in manifest:
+    links = section.get("link", {}) if isinstance(section, dict) else {}
+    for destination, config in links.items():
+        source = config if isinstance(config, str) else config.get("path")
+        if source and not Path(source).exists():
+            raise SystemExit(f"{destination}: missing link source {source}")
+PY
+
+echo "==> Checking TOML"
+"$python_bin" - <<'PY'
+from pathlib import Path
+import tomllib
+
+for path in (Path("starship.toml"), Path("vim/lazyvim-nvim/stylua.toml")):
+    with path.open("rb") as stream:
+        tomllib.load(stream)
+PY
+
+echo "==> Checking Lua syntax"
+while IFS= read -r -d '' file; do
+  nvim --headless -u NONE "+lua assert(loadfile([[${file}]]))" +qa
+done < <(git ls-files -z '*.lua')
+
+git diff --check
+
+echo "All validation checks passed."
