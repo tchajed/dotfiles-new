@@ -1,10 +1,31 @@
+local function shellQuote(value)
+	return "'" .. value:gsub("'", "'\\''") .. "'"
+end
+
+local function findExecutable(name)
+	local home = os.getenv("HOME") or ""
+	for _, directory in ipairs({ home .. "/.local/bin", "/opt/homebrew/bin", "/usr/local/bin" }) do
+		local path = directory .. "/" .. name
+		if hs.fs.attributes(path, "mode") == "file" then
+			return path
+		end
+	end
+	return nil
+end
+
 local newTerminal = function()
 	-- Run cmux via AppleScript's `do shell script` instead of directly from
 	-- Hammerspoon. Direct hs.task/hs.execute calls can hit cmux socket broken-pipe
 	-- errors from Hammerspoon's GUI process environment.
-	local ok, result = hs.osascript.applescript([[
-    do shell script "env -i HOME=/Users/tej PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin /opt/homebrew/bin/cmux new-window 2>&1"
-  ]])
+	local home = os.getenv("HOME") or ""
+	local cmux = findExecutable("cmux")
+	local ok, result = false, "cmux executable not found"
+	if cmux then
+		local path = table.concat({ home .. "/.local/bin", "/opt/homebrew/bin", "/usr/local/bin", "/usr/bin", "/bin", "/usr/sbin", "/sbin" }, ":")
+		local command = "env -i HOME=" .. shellQuote(home) .. " PATH=" .. shellQuote(path) .. " " .. shellQuote(cmux) .. " new-window 2>&1"
+		local script = "do shell script " .. string.format("%q", command)
+		ok, result = hs.osascript.applescript(script)
+	end
 
 	if not ok then
 		hs.execute([[/usr/bin/open -a cmux]])

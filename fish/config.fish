@@ -39,7 +39,9 @@ fish_add_path --prepend ~/.local/bin
 fish_add_path --prepend ~/go/bin
 
 # Homebrew rustup is keg-only, so cargo/rustc shims live here.
-fish_add_path --prepend /opt/homebrew/opt/rustup/bin
+if command -q brew
+    fish_add_path --prepend (brew --prefix rustup)/bin
+end
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
@@ -50,5 +52,5 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-test -r '/Users/tej/.opam/opam-init/init.fish' && source '/Users/tej/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
+test -r "$HOME/.opam/opam-init/init.fish" && source "$HOME/.opam/opam-init/init.fish" >/dev/null 2>/dev/null; or true
 # END opam configuration

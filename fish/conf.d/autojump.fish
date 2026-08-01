@@ -1,6 +1,9 @@
-# Load autojump
-if test -f /opt/homebrew/share/autojump/autojump.fish
-    source /opt/homebrew/share/autojump/autojump.fish
+# Load autojump from the active Homebrew installation.
+if command -q brew
+    set --local autojump_init (brew --prefix autojump)/share/autojump/autojump.fish
+    if test -f "$autojump_init"
+        source "$autojump_init"
+    end
 end
 
 # Use `z` as the jump command (wraps autojump's `j`)

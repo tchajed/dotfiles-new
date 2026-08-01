@@ -32,9 +32,11 @@
 
 ;; Use a POSIX shell internally so Emacs subprocesses don't trip over fish syntax.
 (setq shell-file-name (executable-find "bash"))
-;; Keep interactive terminal buffers using fish.
-(setq-default vterm-shell "/opt/homebrew/bin/fish")
-(setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
+;; Keep interactive terminal buffers using fish when it is available.
+(let ((fish (executable-find "fish")))
+  (when fish
+    (setq-default vterm-shell fish)
+    (setq-default explicit-shell-file-name fish)))
 
 ;; TODO: this doesn't seem to have worked (for getting sorted results)
 (vertico-multiform-mode)
