@@ -69,4 +69,3 @@
 
 - shell:
     - macos/defaults.sh
-    - defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(pwd)/alfred"

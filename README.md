@@ -53,6 +53,15 @@ macOS does not allow the installer to approve privacy and security prompts on yo
 3. Enable biometric unlock if you want `op` CLI commands to authorize through the desktop app.
 4. Enable the 1Password browser extension separately in each browser you use.
 
+### Raycast
+
+1. Open Raycast, complete onboarding, and use the default `⌥ Space` hotkey (or change it in **Raycast Settings → General**).
+2. Disable Spotlight's conflicting shortcut in **System Settings → Keyboard → Keyboard Shortcuts → Spotlight** if needed.
+3. Install [Bear Notes](https://www.raycast.com/hmarr/bear) and [Quick Notes](https://www.raycast.com/biknandy/quick-notes) from the Raycast Store.
+4. Use Raycast's built-in **Calculator** for unit conversions (for example, `10 km in miles`); no separate extension is required.
+5. In **Raycast Settings → Extensions**, assign aliases or hotkeys to **Search Notes**, **Create Note**, **Create Quick Note**, and **Calculator** as desired.
+6. Once Raycast is working, remove Alfred from Login Items if macOS retained it.
+
 ### Bear
 
-Install [Bear from the Mac App Store](https://apps.apple.com/app/bear-markdown-notes/id1091189122). The installer configures Bear's view shortcuts and prints this link when the app is missing.
+Install [Bear from the Mac App Store](https://apps.apple.com/app/bear-markdown-notes/id1091189122). The Bear Notes extension may ask for permission to access Bear's notes database the first time it runs.

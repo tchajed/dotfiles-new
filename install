@@ -23,4 +23,4 @@ if ! brew bundle check --no-upgrade --file="${BREWFILE}"; then
 fi
 
 git submodule update --init --recursive "${DOTBOT_DIR}"
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "$@"
