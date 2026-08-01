@@ -36,6 +36,7 @@ formulae=(
   cmake
   d12frosted/emacs-plus/emacs-plus@30
   devcontainer
+  dust
   elan-init
   emscripten
   eza
