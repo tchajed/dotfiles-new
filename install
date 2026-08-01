@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BREWFILE="${BASEDIR}/Brewfile"
 
 cd "${BASEDIR}"
-git submodule update --init --recursive "${DOTBOT_DIR}"
 
+if ! command -v brew >/dev/null 2>&1; then
+  cat >&2 <<'EOF'
+Homebrew is required before running this installer.
+Install it from https://brew.sh/, then run ./install again.
+EOF
+  exit 1
+fi
+
+if ! brew bundle check --no-upgrade --file="${BREWFILE}"; then
+  brew bundle install --no-upgrade --file="${BREWFILE}"
+fi
+
+git submodule update --init --recursive "${DOTBOT_DIR}"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
