@@ -49,6 +49,7 @@ formulae=(
   gnu-tar
   go
   grep
+  jq
   make
   neovim
   opam
@@ -56,6 +57,7 @@ formulae=(
   pkgconf
   poppler
   python@3.13
+  ripgrep
   rustup
   shellcheck
   starship
