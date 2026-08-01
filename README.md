@@ -57,9 +57,9 @@ macOS does not allow the installer to approve privacy and security prompts on yo
 
 1. Open Raycast, complete onboarding, and use the default `⌥ Space` hotkey (or change it in **Raycast Settings → General**).
 2. Disable Spotlight's conflicting shortcut in **System Settings → Keyboard → Keyboard Shortcuts → Spotlight** if needed.
-3. Install [Bear Notes](https://www.raycast.com/hmarr/bear) and [Quick Notes](https://www.raycast.com/biknandy/quick-notes) from the Raycast Store.
+3. Install [Bear Notes](https://www.raycast.com/hmarr/bear) from the Raycast Store and use Raycast's built-in **Notes** for quick notes.
 4. Use Raycast's built-in **Calculator** for unit conversions (for example, `10 km in miles`); no separate extension is required.
-5. In **Raycast Settings → Extensions**, assign aliases or hotkeys to **Search Notes**, **Create Note**, **Create Quick Note**, and **Calculator** as desired.
+5. In **Raycast Settings → Extensions**, assign aliases or hotkeys to **Search Notes**, **Create Note**, **Notes**, and **Calculator** as desired.
 6. Once Raycast is working, remove Alfred from Login Items if macOS retained it.
 
 ### Bear
