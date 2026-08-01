@@ -3,5 +3,17 @@
 	email = tej@theorem.dev
 [core]
 	editor = nvim
+	pager = delta
+[delta]
+	navigate = true
+	line-numbers = true
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
 [push]
 	autoSetupRemote = true
+[rebase]
+	autoStash = true
