@@ -20,3 +20,7 @@ Install Homebrew packages with:
 ```
 
 Keep the Homebrew arrays sorted; they are generated from `fish -lc 'brew leaves'` and `fish -lc 'brew list --cask'`.
+
+## Manual dependency
+
+Install [Bear from the Mac App Store](https://apps.apple.com/app/bear-markdown-notes/id1091189122). The installer configures Bear's view shortcuts and prints this link when the app is missing.

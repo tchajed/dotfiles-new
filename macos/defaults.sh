@@ -10,6 +10,11 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Bear: swap ⌃1 and ⌃3 (Show Editor Only <-> Show Tags, Notes and Editor),
 # keep ⌃2 at its default (Show Notes and Editor).
+if ! /usr/bin/open -Ra "Bear" >/dev/null 2>&1; then
+  echo "Bear is not installed; install it from the App Store:" >&2
+  echo "https://apps.apple.com/app/bear-markdown-notes/id1091189122" >&2
+fi
+
 defaults write net.shinyfrog.bear NSUserKeyEquivalents -dict-add "Show Editor Only" "^3"
 defaults write net.shinyfrog.bear NSUserKeyEquivalents -dict-add "Show Notes and Editor" "^2"
 defaults write net.shinyfrog.bear NSUserKeyEquivalents -dict-add "Show Tags, Notes and Editor" "^1"
