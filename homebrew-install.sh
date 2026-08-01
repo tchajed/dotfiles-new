@@ -36,6 +36,7 @@ formulae=(
   cmake
   d12frosted/emacs-plus/emacs-plus@30
   devcontainer
+  direnv
   dust
   elan-init
   emscripten
