@@ -4,6 +4,7 @@
 
   "app": {
     "appearance": "system",
+    "appIcon": "dark",
     "workspaceInheritWorkingDirectory": false
   },
 
