@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+fish_path="$(command -v fish)"
+
+if ! grep -Fqx "$fish_path" /etc/shells; then
+  echo "Adding $fish_path to /etc/shells (administrator access required)"
+  printf '%s\n' "$fish_path" | sudo tee -a /etc/shells >/dev/null
+fi
+
+current_shell="$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')"
+if [[ "$current_shell" == "$fish_path" ]]; then
+  echo "Fish is already the default shell."
+  exit 0
+fi
+
+echo "Changing the default shell to $fish_path"
+chsh -s "$fish_path"

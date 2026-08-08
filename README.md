@@ -19,7 +19,7 @@ cd dotfiles-theorem
 ./install
 ```
 
-`./install` checks the root [`Brewfile`](Brewfile), installs any missing Homebrew formulae and applications, and only then links the configurations with Dotbot and applies `macos/defaults.sh`. It is safe to run again: Homebrew skips dependencies that are already installed and Dotbot relinks the managed files.
+`./install` checks the root [`Brewfile`](Brewfile), installs any missing Homebrew formulae and applications, and only then links the configurations with Dotbot, applies `macos/defaults.sh`, and makes Fish the default login shell. It is safe to run again: Homebrew skips dependencies that are already installed and Dotbot relinks the managed files.
 
 To check the Homebrew dependencies without installing anything, run:
 

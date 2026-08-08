@@ -69,3 +69,4 @@
 
 - shell:
     - macos/defaults.sh
+    - [scripts/set-default-shell, Making Fish the default shell]
