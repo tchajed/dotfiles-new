@@ -1,6 +1,6 @@
-# dotfiles-theorem
+# dotfiles-new
 
-Tej's dotfiles for work at [Theorem](https://theorem.dev) managed by [dotbot](https://github.com/anishathalye/dotbot).
+Tej's personal dotfiles for managed by [dotbot](https://github.com/anishathalye/dotbot). This iteration is almost entirely managed by AI - this has made it both easy to use and more reliable.
 
 ## Fresh-machine setup
 
@@ -14,7 +14,7 @@ Before bootstrapping a new Mac:
 Then run the single installer:
 
 ```sh
-git clone https://github.com/tchajed/dotfiles-theorem.git
+git clone https://github.com/tchajed/dotfiles-new.git
 cd dotfiles-theorem
 ./install
 ```
