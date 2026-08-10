@@ -45,6 +45,9 @@
     ~/.pi/agent/agents/explorer.md:
       create: true
       path: pi/agents/explorer.md
+    ~/.pi/agent/extensions/exit.ts:
+      create: true
+      path: pi/extensions/exit.ts
     ~/.agents/skills/cmux:
       create: true
       path: skills/cmux
