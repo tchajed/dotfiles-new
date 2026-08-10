@@ -35,6 +35,10 @@
     ~/.config/ghostty:
       create: true
       path: ghostty
+    ~/.config/zellij/config.kdl:
+      create: true
+      force: true
+      path: zellij/config.kdl
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
