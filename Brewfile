@@ -48,6 +48,7 @@ brew "tree"
 brew "tree-sitter-cli"
 brew "wget"
 brew "zapp"
+brew "zellij"
 brew "zoxide"
 
 cask "1password"
