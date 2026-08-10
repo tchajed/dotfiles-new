@@ -4,6 +4,7 @@
 
 tap "d12frosted/emacs-plus"
 
+brew "agent-browser"
 brew "autoconf"
 brew "awk"
 brew "bat"
