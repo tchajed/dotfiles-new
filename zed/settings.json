@@ -9,6 +9,9 @@
 {
   "auto_update": false,
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     }
