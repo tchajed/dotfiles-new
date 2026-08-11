@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.84.1",
+  "theme": "light",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-codex-image-gen",
+    "npm:@53able/pi-agent-browser",
+    "npm:pi-dynamic-workflows"
+  ],
+  "enabledModels": [
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra"
+  ]
+}

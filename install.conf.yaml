@@ -42,12 +42,40 @@
     ~/.config/cmux/cmux.json:
       create: true
       path: cmux/cmux.json
+    ~/.pi/agent/settings.json:
+      create: true
+      force: true
+      path: pi/settings.json
     ~/.pi/agent/agents/explorer.md:
       create: true
       path: pi/agents/explorer.md
+    ~/.pi/agent/agents/planner.md:
+      create: true
+      path: pi/agents/planner.md
+    ~/.pi/agent/agents/reviewer.md:
+      create: true
+      path: pi/agents/reviewer.md
+    ~/.pi/agent/agents/scout.md:
+      create: true
+      path: pi/agents/scout.md
+    ~/.pi/agent/agents/worker.md:
+      create: true
+      path: pi/agents/worker.md
     ~/.pi/agent/extensions/exit.ts:
       create: true
       path: pi/extensions/exit.ts
+    ~/.pi/agent/extensions/subagent:
+      create: true
+      path: pi/extensions/subagent
+    ~/.pi/agent/prompts/implement.md:
+      create: true
+      path: pi/prompts/implement.md
+    ~/.pi/agent/prompts/implement-and-review.md:
+      create: true
+      path: pi/prompts/implement-and-review.md
+    ~/.pi/agent/prompts/scout-and-plan.md:
+      create: true
+      path: pi/prompts/scout-and-plan.md
     ~/.agents/skills/cmux:
       create: true
       path: skills/cmux
