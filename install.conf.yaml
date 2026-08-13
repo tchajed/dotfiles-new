@@ -8,6 +8,9 @@
     ~/.gitconfig:
       force: true
       path: gitconfig
+    ~/.gitignore_global:
+      force: true
+      path: gitignore_global
     ~/.doom.d: emacs/doom
     ~/.config/nvim:
       create: true

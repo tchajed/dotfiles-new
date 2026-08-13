@@ -4,6 +4,7 @@
 [core]
 	editor = nvim
 	pager = delta
+	excludesFile = ~/.gitignore_global
 [delta]
 	navigate = true
 	line-numbers = true
