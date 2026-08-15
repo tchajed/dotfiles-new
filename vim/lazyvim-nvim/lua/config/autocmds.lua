@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function(args)
     vim.diagnostic.enable(false, { bufnr = args.buf })
+    vim.opt_local.spell = false
   end,
-  desc = "Disable diagnostics by default in Markdown buffers",
+  desc = "Disable diagnostics and spellchecking by default in Markdown buffers",
 })
