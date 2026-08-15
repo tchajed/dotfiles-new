@@ -1,6 +1,7 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
 const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"] as const;
+const SELECTABLE_THINKING_LEVELS = ["off", "low", "medium", "high", "xhigh"] as const;
 type ThinkingLevel = (typeof THINKING_LEVELS)[number];
 
 function isThinkingLevel(value: string): value is ThinkingLevel {
@@ -22,7 +23,7 @@ export default function (pi: ExtensionAPI) {
         const current = pi.getThinkingLevel();
         const selected = await ctx.ui.select(
           `Thinking effort (current: ${current})`,
-          [...THINKING_LEVELS],
+          [...SELECTABLE_THINKING_LEVELS],
         );
         if (!selected) return;
         requested = selected;
