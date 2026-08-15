@@ -67,6 +67,9 @@
     ~/.pi/agent/extensions/exit.ts:
       create: true
       path: pi/extensions/exit.ts
+    ~/.pi/agent/extensions/effort.ts:
+      create: true
+      path: pi/extensions/effort.ts
     ~/.pi/agent/extensions/subagent:
       create: true
       path: pi/extensions/subagent
