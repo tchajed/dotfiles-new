@@ -37,6 +37,7 @@ fish_add_path --prepend $BUN_INSTALL/bin
 
 fish_add_path --prepend ~/.local/bin
 fish_add_path --prepend ~/go/bin
+fish_add_path --prepend ~/code/pi-tools
 
 # Homebrew rustup is keg-only, so cargo/rustc shims live here.
 if command -q brew
